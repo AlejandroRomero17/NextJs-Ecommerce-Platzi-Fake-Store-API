@@ -1,4 +1,4 @@
-// components/auth/RegisterForm.tsx - VERSIÓN CORREGIDA
+// components/auth/RegisterForm.tsx
 "use client";
 
 import React, { useState } from "react";
@@ -22,7 +22,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-export const RegisterForm: React.FC = () => {
+export const RegisterForm = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -39,7 +39,7 @@ export const RegisterForm: React.FC = () => {
   const { register } = useAuth();
   const router = useRouter();
 
-  // Usar nuestro hook de validación
+  // Validation hooks
   const {
     fieldErrors,
     fieldTouched,
@@ -55,7 +55,7 @@ export const RegisterForm: React.FC = () => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
 
-    // Validar en tiempo real si el campo ya fue tocado
+    // Real-time validation if field was already touched
     if (fieldTouched[name]) {
       const validation = validateField(name, value, formData);
       setFieldErrors((prev) => ({
@@ -64,12 +64,12 @@ export const RegisterForm: React.FC = () => {
       }));
     }
 
-    // Validar confirmación de contraseña si cambió la contraseña principal
+    // Validate password confirmation if main password changed
     if (name === "password" && fieldTouched.confirmPassword) {
       const confirmValidation = validateField(
         "confirmPassword",
         formData.confirmPassword,
-        formData
+        { ...formData, password: value }
       );
       setFieldErrors((prev) => ({
         ...prev,
@@ -79,7 +79,7 @@ export const RegisterForm: React.FC = () => {
       }));
     }
 
-    // Limpiar error general
+    // Clear general error
     if (error) setError("");
   };
 
@@ -110,7 +110,7 @@ export const RegisterForm: React.FC = () => {
     e.preventDefault();
     setError("");
 
-    // Marcar todos los campos como tocados
+    // Mark all fields as touched
     const allFields = ["name", "email", "password", "confirmPassword"];
     const newTouched = allFields.reduce(
       (acc, field) => ({ ...acc, [field]: true }),
@@ -118,11 +118,11 @@ export const RegisterForm: React.FC = () => {
     );
     setFieldTouched(newTouched);
 
-    // Validar todos los campos
+    // Validate all fields
     const errors = validateForm(formData);
     setFieldErrors(errors);
 
-    // Si hay errores, no continuar
+    // Stop if there are errors
     if (Object.keys(errors).length > 0) {
       setError("Please correct the errors before continuing");
       return;
@@ -165,18 +165,18 @@ export const RegisterForm: React.FC = () => {
   const passwordStrength = getPasswordStrength(formData.password);
 
   return (
-    <div className="p-4 bg-gradient-to-br from-background via-background to-muted/20">
-      <div className="w-full max-w-lg mx-auto">
+    <div className="min-h-screen p-4 sm:p-6 bg-gradient-to-br from-background via-background to-muted/20 flex items-start sm:items-center justify-center">
+      <div className="w-full max-w-md mx-auto mt-8 sm:mt-0">
         {/* Card Container */}
         <div className="bg-card border border-border rounded-xl shadow-2xl shadow-black/20 backdrop-blur-sm overflow-hidden">
           {/* Header */}
-          <div className="px-8 pt-8 pb-6 text-center">
+          <div className="px-6 sm:px-8 pt-6 sm:pt-8 pb-4 sm:pb-6 text-center">
             <div className="mb-4">
-              <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-xl mx-auto flex items-center justify-center shadow-lg">
-                <UserPlus className="w-8 h-8 text-primary-foreground" />
+              <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-primary to-secondary rounded-xl mx-auto flex items-center justify-center shadow-lg">
+                <UserPlus className="w-7 h-7 sm:w-8 sm:h-8 text-primary-foreground" />
               </div>
             </div>
-            <h1 className="text-2xl font-bold text-card-foreground mb-2">
+            <h1 className="text-xl sm:text-2xl font-bold text-card-foreground mb-2">
               Create Account
             </h1>
             <p className="text-muted-foreground text-sm">
@@ -185,7 +185,7 @@ export const RegisterForm: React.FC = () => {
           </div>
 
           {/* Form Content */}
-          <div className="px-8 pb-8">
+          <div className="px-6 sm:px-8 pb-6 sm:pb-8">
             {error && (
               <Alert
                 variant="destructive"
@@ -196,7 +196,7 @@ export const RegisterForm: React.FC = () => {
               </Alert>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
               {/* Name Field */}
               <div className="space-y-2">
                 <ValidatedInput
@@ -251,7 +251,7 @@ export const RegisterForm: React.FC = () => {
 
                 {/* Password Strength Indicator */}
                 {formData.password && (
-                  <div className="mt-2 bg-muted/50 border-border p-3 rounded-md">
+                  <div className="bg-muted/50 border border-border p-3 rounded-md">
                     <PasswordStrengthIndicator
                       password={formData.password}
                       strength={passwordStrength}
@@ -285,9 +285,9 @@ export const RegisterForm: React.FC = () => {
               <div className="pt-2">
                 <Button
                   type="submit"
-                  className={`w-full h-12 font-medium shadow-lg transition-all duration-200 group ${
+                  className={`w-full h-11 sm:h-12 font-medium shadow-lg transition-all duration-200 group touch-manipulation ${
                     isFormValid() && !isLoading
-                      ? "bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground hover:shadow-xl hover:-translate-y-0.5"
+                      ? "bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0"
                       : "bg-muted text-muted-foreground cursor-not-allowed hover:bg-muted hover:text-muted-foreground hover:shadow-lg hover:translate-y-0"
                   }`}
                   disabled={!isFormValid() || isLoading}
@@ -310,12 +310,12 @@ export const RegisterForm: React.FC = () => {
             </form>
 
             {/* Footer */}
-            <div className="mt-8 pt-6 border-t border-border">
+            <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-border">
               <p className="text-center text-sm text-muted-foreground">
                 Already have an account?{" "}
                 <a
                   href="/auth/login"
-                  className="text-primary hover:text-primary/80 font-medium transition-colors hover:underline"
+                  className="text-primary hover:text-primary/80 font-medium transition-colors hover:underline touch-manipulation"
                 >
                   Sign in here
                 </a>
@@ -324,20 +324,20 @@ export const RegisterForm: React.FC = () => {
           </div>
         </div>
 
-        {/* Trust Indicators */}
-        <div className="mt-6 text-center">
-          <p className="text-xs text-muted-foreground">
-            By registering, you agree to our{" "}
+        {/* Additional Info */}
+        <div className="mt-4 sm:mt-6 text-center px-2">
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            By creating an account, you agree to our{" "}
             <a
               href="/terms"
-              className="text-muted-foreground hover:text-card-foreground underline transition-colors"
+              className="text-muted-foreground hover:text-card-foreground underline transition-colors touch-manipulation"
             >
               Terms of Service
             </a>{" "}
             and{" "}
             <a
               href="/privacy"
-              className="text-muted-foreground hover:text-card-foreground underline transition-colors"
+              className="text-muted-foreground hover:text-card-foreground underline transition-colors touch-manipulation"
             >
               Privacy Policy
             </a>
