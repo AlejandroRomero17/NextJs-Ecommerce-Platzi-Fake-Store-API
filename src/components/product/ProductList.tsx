@@ -1,13 +1,12 @@
-// src/app/components/product/ProductList.tsx
 "use client";
 
-import { useProducts } from "@/hooks/useProducts";
-import ProductCard from "./ProductCard";
-import { Skeleton } from "@/components/ui/skeleton";
 import { Card, CardContent, CardFooter } from "@/components/ui/card"; // Importar los componentes de Card
+import { Skeleton } from "@/components/ui/skeleton";
+import { useProductList } from "@/hooks/useProductList";
+import ProductCard from "./ProductCard";
 
 export default function ProductList() {
-  const { data: products, isLoading, error } = useProducts();
+  const { data: products, isLoading, error } = useProductList();
 
   if (isLoading) {
     return (

@@ -1,11 +1,11 @@
-// src/components/search/SearchResults.tsx
 "use client";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { useCart } from "@/hooks/useCart";
-import { Product } from "@/utils/types";
+// import { useCart } from "@/hooks/useCart";
+import { useCart } from "@/contexts/CartContext";
+import { Product } from "@/types";
 import { ShoppingCart, Star, X, Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";

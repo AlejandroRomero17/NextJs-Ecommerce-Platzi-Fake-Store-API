@@ -1,4 +1,3 @@
-// src/app/components/cart/CartSummary.tsx
 "use client";
 
 import { Button } from "@/components/ui/button";

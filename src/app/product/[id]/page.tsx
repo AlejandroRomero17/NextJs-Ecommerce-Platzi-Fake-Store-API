@@ -1,4 +1,3 @@
-// src/app/product/[id]/page.tsx
 "use client";
 
 import ImageGallery from "@/components/product/ImageGallery";
@@ -6,7 +5,7 @@ import ProductInfo from "@/components/product/ProductInfo";
 import RelatedProducts from "@/components/product/RelatedProducts";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useProduct } from "@/hooks/useProduct";
+import { useProductDetail } from "@/hooks/useProductDetail";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
@@ -16,7 +15,7 @@ export default function ProductDetailPage() {
   const router = useRouter();
   const productId = Number(params.id);
 
-  const { data: product, isLoading, error } = useProduct(productId);
+  const { data: product, isLoading, error } = useProductDetail(productId);
 
   if (isLoading) {
     return <ProductDetailSkeleton />;

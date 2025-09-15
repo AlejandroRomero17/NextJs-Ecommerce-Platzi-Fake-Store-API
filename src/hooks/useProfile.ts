@@ -1,8 +1,7 @@
-// src/app/hooks/useProfile.ts
 "use client";
 
 import { useAuth } from "@/contexts/AuthContext";
-import { authAPI } from "@/utils/api";
+import { authService } from "@/services";
 import { useQuery } from "@tanstack/react-query";
 
 export function useProfile() {
@@ -12,8 +11,9 @@ export function useProfile() {
     queryKey: ["profile", token],
     queryFn: () => {
       if (!token) throw new Error("No token available");
-      return authAPI.getProfile(token);
+      return authService.getProfile(token);
     },
     enabled: !!token,
   });
 }
+// ELIMINA el segundo useProfile duplicado

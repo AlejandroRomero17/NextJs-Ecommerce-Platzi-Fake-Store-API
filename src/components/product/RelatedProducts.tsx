@@ -1,12 +1,11 @@
-// src/app/components/product/RelatedProducts.tsx
 "use client";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { useRelatedProducts } from "@/hooks/useProduct";
+import { useRelatedProducts } from "@/hooks/useProductDetail";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef } from "react";
 
 interface RelatedProductsProps {

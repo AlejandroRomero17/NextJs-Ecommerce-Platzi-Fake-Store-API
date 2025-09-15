@@ -9,7 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Category } from "@/utils/types";
+import { Category } from "@/types";
 import { Filter, Search } from "lucide-react";
 
 interface SearchFiltersProps {

@@ -1,11 +1,9 @@
-// src/app/page.tsx
 "use client";
 
 import { useHomeData } from "@/hooks/useHomeData";
 import HeroSection from "@/components/home/HeroSection";
 import FeaturedProducts from "@/components/home/FeaturedProducts";
 import CategoriesGrid from "@/components/home/CategoriesGrid";
-import BenefitsSection from "@/components/home/BenefitsSection";
 import HomeSkeleton from "@/components/home/HomeSkeleton";
 import ProductList from "@/components/product/ProductList";
 
@@ -34,7 +32,6 @@ export default function Home() {
           <ProductList />
         </section>
 
-        <BenefitsSection />
       </div>
     </div>
   );

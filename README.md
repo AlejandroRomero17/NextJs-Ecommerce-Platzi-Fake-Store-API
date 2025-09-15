@@ -76,7 +76,7 @@ src/
 
 1. **Clonar el repositorio**
 ```bash
-git clone https://github.com/tu-usuario/platzi-fake-store.git
+git clone https://github.com/AlejandroRomero17/NextJs-Ecommerce-Platzi-Fake-Store-API
 cd platzi-fake-store
 ```
 
@@ -196,37 +196,22 @@ Este proyecto consume la **[Platzi Fake Store API](https://fakeapi.platzi.com/)*
 - **[Netlify](https://www.netlify.com/)**
 - **[Railway](https://railway.app/)**
 
-### Variables de entorno
-```env
-NEXT_PUBLIC_API_URL=https://api.escuelajs.co/api/v1
-```
-
-## 🤝 Contribución
-
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
-
 
 ## 👨‍💻 Autor
 
 **Tu Nombre**
 - GitHub: [@AlejandroRomero17](https://github.com/AlejandroRomero17)
-- LinkedIn: [Tu Perfil](https://linkedin.com/in/http://www.linkedin.com/in/alejandrogonzalezromero17)
+- LinkedIn: [Alejandro Gonzalez Romero](https://www.linkedin.com/in/alejandrogonzalezromero17)
 - Email: gonzalez.romero.alejandroo@gmail.com
 
 ## 🙏 Agradecimientos
 
 - [Platzi](https://platzi.com/) por la API gratuita
 - [Vercel](https://vercel.com/) por la plataforma de deployment
-- [Radix UI](https://www.radix-ui.com/) por los componentes accesibles
-- [Shadcn](https://ui.shadcn.com/) por los componentes accesibles
+- [Radix UI](https://www.radix-ui.com/) primitives accesibles
+- [Shadcn](https://ui.shadcn.com/) componentes preconstruidos basados en Radix + Tailwind
 - La comunidad de Next.js por la documentación excelente
 
 ---
 
 ⭐ Si este proyecto te fue útil, ¡no olvides darle una estrella!
-#   N e x t J s - E c o m m e r c e - P l a t z i - F a k e - S t o r e - A P I  
- 

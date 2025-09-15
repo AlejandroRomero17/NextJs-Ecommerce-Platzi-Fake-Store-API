@@ -1,14 +1,13 @@
-// src/app/hooks/useProduct.ts
 "use client";
 
-import { productAPI } from "@/utils/api";
-import { Product } from "@/utils/types";
+import { productService } from "@/services";
+import { Product } from "@/types";
 import { useQuery } from "@tanstack/react-query";
 
-export function useProduct(id: number) {
+export function useProductDetail(id: number) {
   return useQuery<Product>({
     queryKey: ["product", id],
-    queryFn: () => productAPI.getById(id),
+    queryFn: () => productService.getById(id),
     enabled: !!id,
   });
 }
@@ -18,7 +17,7 @@ export function useRelatedProducts(categoryId?: number, excludeId?: number) {
     queryKey: ["related-products", categoryId, excludeId],
     queryFn: () => {
       if (!categoryId) return Promise.resolve([]);
-      return productAPI.getByCategory(categoryId);
+      return productService.getByCategory(categoryId);
     },
     enabled: !!categoryId,
     select: (data) => {

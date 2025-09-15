@@ -1,14 +1,13 @@
-// contexts/CartContext.tsx - Versión mejorada
 "use client";
 
-import React, {
+import { Product } from "@/types";
+import {
   createContext,
+  ReactNode,
   useContext,
   useEffect,
   useState,
-  ReactNode,
 } from "react";
-import { Product } from "@/utils/types";
 
 export interface CartItem {
   product: Product;
@@ -32,7 +31,7 @@ interface CartProviderProps {
   children: ReactNode;
 }
 
-export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
+export function CartProvider({ children }: CartProviderProps) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -125,12 +124,12 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
-};
+}
 
-export const useCart = () => {
+export function useCart() {
   const context = useContext(CartContext);
   if (context === undefined) {
     throw new Error("useCart must be used within a CartProvider");
   }
   return context;
-};
+}

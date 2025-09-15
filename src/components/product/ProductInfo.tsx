@@ -1,11 +1,10 @@
-// components/product/ProductInfo.tsx
 "use client";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { useCart } from "@/hooks/useCart";
-import { Product } from "@/utils/types";
+import { Product } from "@/types";
 import { Heart, Minus, Plus, Share2, ShoppingCart, Star } from "lucide-react";
 import { useState } from "react";
 

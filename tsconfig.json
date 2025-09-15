@@ -24,7 +24,9 @@
       "@/components/*": ["./src/components/*"],
       "@/contexts/*": ["./src/contexts/*"],
       "@/hooks/*": ["./src/hooks/*"],
+      "@/services/*": ["./src/services/*"],
       "@/utils/*": ["./src/utils/*"],
+      "@/types/*": ["./src/types/*"],
       "@/lib/*": ["./src/lib/*"],
     }
   },

@@ -1,14 +1,14 @@
 // src/app/hooks/useHomeData.ts
 "use client";
 
-import { categoryAPI, productAPI } from "@/utils/api";
-import { Category, Product } from "@/utils/types";
+import { productService, categoryService } from "@/services";
+import { Category, Product } from "@/types";
 import { useQuery } from "@tanstack/react-query";
 
 export function useHomeData() {
   const { data: products, isLoading: productsLoading } = useQuery<Product[]>({
     queryKey: ["home-products"],
-    queryFn: () => productAPI.getAll(),
+    queryFn: () => productService.getAll(),
     staleTime: 5 * 60 * 1000, // 5 minutos
   });
 
@@ -16,7 +16,7 @@ export function useHomeData() {
     Category[]
   >({
     queryKey: ["home-categories"],
-    queryFn: () => categoryAPI.getAll(),
+    queryFn: () => categoryService.getAll(),
     staleTime: 10 * 60 * 1000, // 10 minutos
   });
 

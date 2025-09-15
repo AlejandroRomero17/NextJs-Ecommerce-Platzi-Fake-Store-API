@@ -1,4 +1,3 @@
-// src/app/components/profile/QuickActions.tsx
 "use client";
 
 import Link from "next/link";

@@ -1,8 +1,7 @@
-// src/app/components/cart/CartItem.tsx
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { CartItem as CartItemType } from "@/utils/types";
+import { CartItem as CartItemType } from "@/types";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";

@@ -1,5 +1,3 @@
-// components/ui/PasswordStrengthIndicator.tsx
-import React from "react";
 import { CheckCircle2, XCircle } from "lucide-react";
 import { defaultValidationRules } from "@/hooks/useValidation";
 
@@ -13,9 +11,10 @@ interface PasswordStrengthIndicatorProps {
   };
 }
 
-export const PasswordStrengthIndicator: React.FC<
-  PasswordStrengthIndicatorProps
-> = ({ password, strength }) => {
+export function PasswordStrengthIndicator({
+  password,
+  strength,
+}: PasswordStrengthIndicatorProps) {
   const rules = defaultValidationRules.password;
 
   return (
@@ -52,4 +51,4 @@ export const PasswordStrengthIndicator: React.FC<
       </div>
     </div>
   );
-};
+}

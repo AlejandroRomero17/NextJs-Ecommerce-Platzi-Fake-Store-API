@@ -1,4 +1,3 @@
-// src/app/components/common/AuthGuard.tsx (actualización)
 "use client";
 
 import { useAuth } from "@/contexts/AuthContext";

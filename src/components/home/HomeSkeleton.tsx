@@ -1,4 +1,3 @@
-// src/app/components/home/HomeSkeleton.tsx
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 

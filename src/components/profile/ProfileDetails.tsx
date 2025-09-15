@@ -1,4 +1,3 @@
-// src/app/components/profile/ProfileDetails.tsx
 "use client";
 
 import { Badge } from "@/components/ui/badge";
@@ -9,7 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { User as UserType } from "@/utils/types";
+import { User as UserType } from "@/types";
 import { Calendar, Mail, ShoppingBag, User } from "lucide-react";
 
 interface ProfileDetailsProps {

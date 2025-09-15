@@ -1,4 +1,3 @@
-// src/app/cart/loading.tsx
 import { Skeleton } from "@/components/ui/skeleton";
 import { Card, CardContent } from "@/components/ui/card";
 

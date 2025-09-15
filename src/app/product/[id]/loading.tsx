@@ -1,22 +1,21 @@
-// src/app/product/[id]/loading.tsx
+
 import { Skeleton } from "@/components/ui/skeleton";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 
 export default function ProductLoading() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Breadcrumb Skeleton */}
+
       <div className="mb-6">
         <Skeleton className="h-4 w-64" />
       </div>
 
-      {/* Back Button Skeleton */}
       <div className="mb-6">
         <Skeleton className="h-10 w-32" />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-        {/* Image Gallery Skeleton */}
+
         <div className="space-y-4">
           <Skeleton className="aspect-square w-full rounded-lg" />
           <div className="flex space-x-2">
@@ -26,7 +25,6 @@ export default function ProductLoading() {
           </div>
         </div>
 
-        {/* Product Info Skeleton */}
         <div className="space-y-6">
           <div>
             <Skeleton className="h-6 w-24 mb-3" />
@@ -44,7 +42,7 @@ export default function ProductLoading() {
 
           <div className="h-px bg-border" />
 
-          {/* Quantity and Add to Cart Skeleton */}
+
           <div className="space-y-4">
             <div>
               <Skeleton className="h-5 w-24 mb-2" />
@@ -64,7 +62,7 @@ export default function ProductLoading() {
 
           <div className="h-px bg-border" />
 
-          {/* Product Details Skeleton */}
+
           <div className="space-y-2 text-sm">
             {[...Array(3)].map((_, i) => (
               <div key={i} className="flex justify-between">
@@ -76,7 +74,6 @@ export default function ProductLoading() {
         </div>
       </div>
 
-      {/* Related Products Skeleton */}
       <div>
         <Skeleton className="h-6 w-48 mb-6" />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">

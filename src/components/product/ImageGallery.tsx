@@ -1,7 +1,6 @@
-// src/app/components/product/ImageGallery.tsx
 "use client";
 
-import { Product } from "@/utils/types";
+import { Product } from "@/types";
 import Image from "next/image";
 import { useState } from "react";
 

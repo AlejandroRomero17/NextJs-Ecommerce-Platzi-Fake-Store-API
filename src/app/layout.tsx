@@ -1,5 +1,5 @@
-// src/app/layout.tsx
 import { Header } from "@/components/common/Header";
+import { Footer } from "@/components/common/Footer";
 import { AuthProvider, CartProvider, QueryProvider } from "@/contexts";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -38,6 +38,7 @@ export default function RootLayout({
             </CartProvider>
           </AuthProvider>
         </QueryProvider>
+        <Footer />
       </body>
     </html>
   );

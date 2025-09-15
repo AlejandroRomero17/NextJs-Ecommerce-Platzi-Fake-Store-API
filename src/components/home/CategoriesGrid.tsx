@@ -1,9 +1,8 @@
-// src/app/components/home/CategoriesGrid.tsx
 "use client";
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Category } from "@/utils/types";
+import { Category } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 

@@ -2,7 +2,7 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { User as UserType } from "@/utils/types";
+import { User as UserType } from "@/types";
 import { LogOut, User } from "lucide-react";
 
 interface ProfileCardProps {

@@ -1,4 +1,3 @@
-// src/app/cart/page.tsx (versión corregida)
 "use client";
 
 import CartItem from "@/components/cart/CartItem";
@@ -13,12 +12,12 @@ import { useRouter } from "next/navigation";
 export default function CartPage() {
   const router = useRouter();
   const {
-    cartItems, // Cambiado de getCartItems()
+    cartItems,
     updateQuantity,
-    removeFromCart, // Cambiado de removeItem
+    removeFromCart,
     clearCart,
-    getTotalPrice, // Cambiado de getTotal()
-    getTotalItems, // Cambiado de getItemCount()
+    getTotalPrice,
+    getTotalItems,
   } = useCart();
 
   const subtotal = getTotalPrice();

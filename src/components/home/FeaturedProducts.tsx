@@ -1,26 +1,24 @@
-// src/components/home/FeaturedProducts.tsx
 "use client";
 
+import ProductCard from "@/components/product/ProductCard";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import { useProducts } from "@/hooks/useProducts";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useProductList } from "@/hooks/useProductList";
+import { Product } from "@/types";
 import {
   ArrowRight,
-  Sparkles,
-  TrendingUp,
-  Eye,
   ChevronLeft,
   ChevronRight,
+  Eye,
   Grid3X3,
   List,
+  Sparkles,
+  TrendingUp,
 } from "lucide-react";
 import Link from "next/link";
-import ProductCard from "@/components/product/ProductCard";
-import { Skeleton } from "@/components/ui/skeleton";
-import { Product } from "@/utils/types";
-import { useState, useRef } from "react";
+import { useRef, useState } from "react";
 
 interface FeaturedProductsProps {
   products?: Product[];
@@ -29,7 +27,7 @@ interface FeaturedProductsProps {
 export default function FeaturedProducts({
   products: externalProducts,
 }: FeaturedProductsProps) {
-  const { data: productsFromHook, isLoading } = useProducts();
+  const { data: productsFromHook, isLoading } = useProductList();
   const products = externalProducts || productsFromHook || [];
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -40,8 +38,8 @@ export default function FeaturedProducts({
 
   if (!products || products.length === 0) return null;
 
-  const featuredProducts = products.slice(0, 6); // Aumentamos a 6 productos
-  const mobileProducts = products.slice(0, 4); // 4 para móvil
+  const featuredProducts = products.slice(0, 6);
+  const mobileProducts = products.slice(0, 4);
 
   const scrollLeft = () => {
     if (scrollRef.current) {
@@ -234,41 +232,6 @@ export default function FeaturedProducts({
           </Card>
         </div>
 
-        {/* Stats Section - Desktop
-        <div className="hidden sm:block mb-8">
-          <Card className="bg-gradient-to-r from-card/50 to-card/30 border-border/50">
-            <CardContent className="p-6">
-              <div className="flex justify-center items-center gap-8 lg:gap-12">
-                <div className="text-center">
-                  <div className="text-2xl lg:text-3xl font-bold text-foreground">
-                    2.5K+
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    Products Available
-                  </div>
-                </div>
-                <Separator orientation="vertical" className="h-12" />
-                <div className="text-center">
-                  <div className="text-2xl lg:text-3xl font-bold text-foreground">
-                    98%
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    Customer Satisfaction
-                  </div>
-                </div>
-                <Separator orientation="vertical" className="h-12" />
-                <div className="text-center">
-                  <div className="text-2xl lg:text-3xl font-bold text-foreground">
-                    24h
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    Fast Shipping
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div> */}
 
         {/* CTA Section */}
         <div className="text-center space-y-4">

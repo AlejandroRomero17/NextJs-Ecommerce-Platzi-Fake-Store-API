@@ -1,20 +1,14 @@
-// contexts/AuthContext.tsx (versión con token)
 "use client";
 
-import React, {
+import { authService } from "@/services";
+import { AuthContextType, LoginCredentials, RegisterData, User } from "@/types";
+import {
   createContext,
+  ReactNode,
   useContext,
   useEffect,
   useState,
-  ReactNode,
 } from "react";
-import {
-  User,
-  LoginCredentials,
-  RegisterData,
-  AuthContextType,
-} from "@/utils/types";
-import { loginUser, registerUser, getProfile, refreshToken } from "@/utils/api";
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
@@ -22,7 +16,7 @@ interface AuthProviderProps {
   children: ReactNode;
 }
 
-export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
+export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [token, setToken] = useState<string | null>(null);
@@ -39,17 +33,19 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       if (accessToken) {
         setToken(accessToken);
         // Verificar si el token es válido
-        const userProfile = await getProfile(accessToken);
+        const userProfile = await authService.getProfile(accessToken);
         setUser(userProfile);
       } else if (refreshTokenValue) {
         // Intentar renovar el token
         try {
-          const tokens = await refreshToken(refreshTokenValue);
+          const tokens = await authService.refreshToken(refreshTokenValue);
           localStorage.setItem("access_token", tokens.access_token);
-          localStorage.setItem("refresh_token", tokens.refresh_token);
+          if (tokens.refresh_token) {
+            localStorage.setItem("refresh_token", tokens.refresh_token);
+          }
           setToken(tokens.access_token);
 
-          const userProfile = await getProfile(tokens.access_token);
+          const userProfile = await authService.getProfile(tokens.access_token);
           setUser(userProfile);
         } catch {
           // Si el refresh token también es inválido, limpiar todo
@@ -68,19 +64,23 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   };
 
-  const login = async (credentials: LoginCredentials) => {
+  const login = async (credentials: LoginCredentials): Promise<User> => {
     try {
       setIsLoading(true);
-      const tokens = await loginUser(credentials);
+      const tokens = await authService.login(credentials);
 
       // Guardar tokens en localStorage
       localStorage.setItem("access_token", tokens.access_token);
-      localStorage.setItem("refresh_token", tokens.refresh_token);
+      if (tokens.refresh_token) {
+        localStorage.setItem("refresh_token", tokens.refresh_token);
+      }
       setToken(tokens.access_token);
 
       // Obtener perfil del usuario
-      const userProfile = await getProfile(tokens.access_token);
+      const userProfile = await authService.getProfile(tokens.access_token);
       setUser(userProfile);
+
+      return userProfile; // Devolver el usuario como promete el tipo
     } catch (error) {
       console.error("Login error:", error);
       throw error;
@@ -89,14 +89,19 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   };
 
-  const register = async (userData: RegisterData) => {
+  const register = async (userData: RegisterData): Promise<User> => {
     try {
       setIsLoading(true);
       // Registrar usuario
-      await registerUser(userData);
+      // const newUser = await authService.register(userData);
 
       // Iniciar sesión automáticamente después del registro
-      await login({ email: userData.email, password: userData.password });
+      const loggedInUser = await login({
+        email: userData.email,
+        password: userData.password,
+      });
+
+      return loggedInUser; // Devolver el usuario como promete el tipo
     } catch (error) {
       console.error("Registration error:", error);
       throw error;
@@ -112,15 +117,23 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     setToken(null);
   };
 
-  const updateProfile = async (userData: Partial<User>) => {
-    // Implementar actualización de perfil
+  const updateProfile = async (userData: Partial<User>): Promise<User> => {
+    // TODO: Implementar actualización de perfil cuando la API lo soporte
     console.log("Update profile:", userData);
-    // Aquí iría la llamada a la API para actualizar el perfil
+
+    // Por ahora, actualizar el estado local y devolver el usuario actualizado
+    if (user) {
+      const updatedUser = { ...user, ...userData };
+      setUser(updatedUser);
+      return updatedUser;
+    }
+
+    throw new Error("No hay usuario autenticado para actualizar");
   };
 
   const value: AuthContextType = {
     user,
-    token, // Agregar token al contexto
+    token,
     isAuthenticated: !!user,
     isLoading,
     login,
@@ -130,12 +143,12 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-};
+}
 
-export const useAuth = () => {
+export function useAuth() {
   const context = useContext(AuthContext);
   if (context === undefined) {
     throw new Error("useAuth must be used within an AuthProvider");
   }
   return context;
-};
+}

@@ -1,4 +1,3 @@
-import React from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CheckCircle2, XCircle, AlertCircle, Eye, EyeOff } from "lucide-react";
@@ -19,7 +18,7 @@ interface ValidatedInputProps {
   onTogglePassword?: () => void;
 }
 
-export const ValidatedInput: React.FC<ValidatedInputProps> = ({
+export function ValidatedInput({
   id,
   name,
   type,
@@ -33,7 +32,7 @@ export const ValidatedInput: React.FC<ValidatedInputProps> = ({
   touched,
   showPassword,
   onTogglePassword,
-}) => {
+}: ValidatedInputProps) {
   const hasError = touched && error;
 
   return (
@@ -93,4 +92,4 @@ export const ValidatedInput: React.FC<ValidatedInputProps> = ({
       )}
     </div>
   );
-};
+}

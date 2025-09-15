@@ -1,4 +1,3 @@
-// src/components/product/ProductCard.tsx
 "use client";
 
 import { useState } from "react";
@@ -6,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useCart } from "@/contexts/CartContext";
-import { Product } from "@/utils/types";
+import { Product } from "@/types";
 import { ShoppingCart, Star, Eye, Heart, Zap } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -184,7 +183,7 @@ export default function ProductCard({
             size="default"
           >
             <ShoppingCart className="w-4 h-4 mr-2" />
-            Add to cart
+            Agregar
           </Button>
         </CardFooter>
       )}

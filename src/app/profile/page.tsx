@@ -1,4 +1,3 @@
-// src/app/profile/page.tsx
 "use client";
 
 import Link from "next/link";
@@ -9,7 +8,7 @@ import { ArrowLeft } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useProfile } from "@/hooks/useProfile";
 import AuthGuard from "@/components/common/AuthGuard";
-import ProfileCard from "@//components/profile/ProfileCard";
+import ProfileCard from "@/components/profile/ProfileCard";
 import ProfileDetails from "@/components/profile/ProfileDetails";
 import QuickActions from "@/components/profile/QuickActions";
 
