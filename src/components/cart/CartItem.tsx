@@ -19,7 +19,6 @@ export default function CartItem({
 }: CartItemProps) {
   return (
     <div className="flex items-center space-x-4 p-4 border rounded-lg">
-      {/* Product Image */}
       <div className="relative w-20 h-20 rounded-lg overflow-hidden bg-muted flex-shrink-0">
         <Image
           src={item.product.images[0] || "/placeholder.svg"}
@@ -30,7 +29,6 @@ export default function CartItem({
         />
       </div>
 
-      {/* Product Info */}
       <div className="flex-1 min-w-0">
         <Link href={`/product/${item.product.id}`}>
           <h3 className="font-semibold text-foreground hover:text-primary transition-colors line-clamp-2">
@@ -42,7 +40,6 @@ export default function CartItem({
         </p>
       </div>
 
-      {/* Quantity Controls */}
       <div className="flex items-center space-x-2">
         <Button
           variant="outline"
@@ -62,14 +59,12 @@ export default function CartItem({
         </Button>
       </div>
 
-      {/* Item Total */}
       <div className="text-right">
         <p className="font-bold text-foreground">
           ${(item.product.price * item.quantity).toFixed(2)}
         </p>
       </div>
 
-      {/* Remove Button */}
       <Button
         variant="ghost"
         size="sm"

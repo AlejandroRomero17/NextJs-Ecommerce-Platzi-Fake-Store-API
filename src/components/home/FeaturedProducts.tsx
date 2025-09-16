@@ -56,7 +56,6 @@ export default function FeaturedProducts({
   return (
     <section className="py-8 sm:py-12 bg-gradient-to-b from-background to-muted/20">
       <div className="container px-4 sm:px-6">
-        {/* Mobile Header */}
         <div className="block sm:hidden mb-6">
           <Card className="bg-card/50 border-border/50">
             <CardContent className="p-4">
@@ -94,7 +93,6 @@ export default function FeaturedProducts({
           </Card>
         </div>
 
-        {/* Desktop Header */}
         <div className="hidden sm:block text-center mb-8 lg:mb-12">
           <Badge className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4 border-primary/20">
             <Sparkles className="w-4 h-4" />
@@ -109,10 +107,8 @@ export default function FeaturedProducts({
           </p>
         </div>
 
-        {/* Mobile: Horizontal Scroll */}
         <div className="block sm:hidden mb-6">
           <div className="relative">
-            {/* Scroll Controls */}
             <div className="flex justify-between items-center mb-4">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <TrendingUp className="w-4 h-4" />
@@ -138,7 +134,6 @@ export default function FeaturedProducts({
               </div>
             </div>
 
-            {/* Scrollable Products - MODIFICADO */}
             <div className="relative">
               <div
                 ref={scrollRef}
@@ -185,13 +180,10 @@ export default function FeaturedProducts({
           </div>
         </div>
 
-        {/* Tablet & Desktop: Grid Layout */}
         <div className="hidden sm:block">
-          {/* Products Grid */}
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6 mb-8">
             {featuredProducts.map((product, index) => (
               <div key={product.id} className="group">
-                {/* Featured Badge for first product */}
                 {index === 0 && (
                   <div className="relative">
                     <Badge className="absolute -top-2 left-4 z-10 bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-3 py-1 text-xs font-bold shadow-lg">
@@ -210,7 +202,6 @@ export default function FeaturedProducts({
           </div>
         </div>
 
-        {/* Stats Section - Mobile */}
         <div className="block sm:hidden mb-6">
           <Card className="bg-card/30 border-border/50">
             <CardContent className="p-4">
@@ -233,9 +224,7 @@ export default function FeaturedProducts({
         </div>
 
 
-        {/* CTA Section */}
         <div className="text-center space-y-4">
-          {/* Mobile CTA */}
           <div className="block sm:hidden">
             <div className="grid grid-cols-2 gap-3 max-w-sm mx-auto">
               <Button
@@ -257,7 +246,6 @@ export default function FeaturedProducts({
             </div>
           </div>
 
-          {/* Desktop CTA */}
           <div className="hidden sm:flex justify-center gap-4">
             <Button
               size="lg"
@@ -285,12 +273,10 @@ export default function FeaturedProducts({
   );
 }
 
-// Componente de skeleton mejorado
 function FeaturedProductsSkeleton() {
   return (
     <section className="py-8 sm:py-12 bg-gradient-to-b from-background to-muted/20">
       <div className="container px-4 sm:px-6">
-        {/* Mobile Skeleton */}
         <div className="block sm:hidden">
           <Card className="bg-card/50 border-border/50 mb-6">
             <CardContent className="p-4">
@@ -336,7 +322,6 @@ function FeaturedProductsSkeleton() {
           </div>
         </div>
 
-        {/* Desktop Skeleton */}
         <div className="hidden sm:block">
           <div className="text-center mb-8 lg:mb-12">
             <Skeleton className="h-8 w-32 mx-auto mb-4" />

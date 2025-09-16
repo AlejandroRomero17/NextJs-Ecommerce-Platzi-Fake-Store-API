@@ -41,7 +41,6 @@ export default function ProductDetailPage() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Breadcrumb */}
       <nav className="mb-6">
         <div className="flex items-center space-x-2 text-sm text-muted-foreground">
           <Link href="/" className="hover:text-primary transition-colors">
@@ -52,7 +51,6 @@ export default function ProductDetailPage() {
         </div>
       </nav>
 
-      {/* Back Button */}
       <Button
         variant="ghost"
         onClick={() => router.back()}
@@ -63,18 +61,15 @@ export default function ProductDetailPage() {
       </Button>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-        {/* Image Gallery */}
         <div>
           <ImageGallery product={product} />
         </div>
 
-        {/* Product Information */}
         <div>
           <ProductInfo product={product} />
         </div>
       </div>
 
-      {/* Related Products */}
       <RelatedProducts
         categoryId={product.category.id}
         excludeId={product.id}
@@ -86,13 +81,11 @@ export default function ProductDetailPage() {
 function ProductDetailSkeleton() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Breadcrumb Skeleton */}
       <div className="mb-6">
         <Skeleton className="h-4 w-64" />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-        {/* Image Gallery Skeleton */}
         <div className="space-y-4">
           <Skeleton className="aspect-square w-full rounded-lg" />
           <div className="flex space-x-2">
@@ -102,7 +95,6 @@ function ProductDetailSkeleton() {
           </div>
         </div>
 
-        {/* Product Info Skeleton */}
         <div className="space-y-6">
           <div>
             <Skeleton className="h-8 w-3/4 mb-2" />
@@ -117,7 +109,6 @@ function ProductDetailSkeleton() {
         </div>
       </div>
 
-      {/* Related Products Skeleton */}
       <div>
         <Skeleton className="h-6 w-48 mb-6" />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">

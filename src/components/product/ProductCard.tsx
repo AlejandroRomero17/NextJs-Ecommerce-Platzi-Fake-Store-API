@@ -78,7 +78,6 @@ export default function ProductCard({
       className={`overflow-hidden hover:shadow-xl transition-all duration-300 group h-full flex flex-col border-border/60 hover:border-primary/30 ${className}`}
     >
       <Link href={`/product/${product.id}`} className="flex flex-col flex-grow">
-        {/* Imagen del producto con overlay de hover */}
         <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-muted/20 to-muted/40">
           <Image
             src={imageError ? "/placeholder-image.jpg" : safeImageUrl}
@@ -93,24 +92,20 @@ export default function ProductCard({
             priority={false}
           />
 
-          {/* Overlay de hover */}
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-300" />
 
-          {/* Placeholder de carga */}
           {!imageLoaded && (
             <div className="absolute inset-0 bg-gradient-to-br from-muted/30 to-muted/50 animate-pulse flex items-center justify-center">
               <ShoppingCart className="w-10 h-10 text-muted-foreground/50" />
             </div>
           )}
 
-          {/* Badge de categoría */}
           {showCategory && product.category && (
             <Badge className="absolute top-3 right-3 bg-background/95 backdrop-blur-md text-foreground border-border text-xs font-medium px-2 py-1 shadow-sm">
               {product.category.name}
             </Badge>
           )}
 
-          {/* Botón de favoritos mejorado */}
           <button
             onClick={handleLike}
             className={`absolute top-3 left-3 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-300 backdrop-blur-md ${
@@ -125,26 +120,21 @@ export default function ProductCard({
             />
           </button>
 
-          {/* Badge de envío rápido */}
           <Badge className="absolute bottom-3 left-3 bg-green-500/95 backdrop-blur-md text-white border-0 text-xs font-medium px-2 py-1">
             <Zap className="w-3 h-3 mr-1" />
             Envío rápido
           </Badge>
         </div>
 
-        {/* Contenido de la tarjeta */}
         <CardContent className="p-4 flex-grow space-y-3">
-          {/* Título */}
           <h3 className="font-semibold text-foreground line-clamp-2 text-balance group-hover:text-primary transition-colors text-base leading-tight">
             {product.title}
           </h3>
 
-          {/* Descripción */}
           <p className="text-muted-foreground line-clamp-2 text-sm leading-relaxed">
             {product.description}
           </p>
 
-          {/* Rating y precio */}
           <div className="flex items-center justify-between pt-2">
             <div className="flex flex-col">
               <span className="text-2xl font-bold text-primary font-sans">
@@ -164,7 +154,6 @@ export default function ProductCard({
         </CardContent>
       </Link>
 
-      {/* Acciones - Optimizadas para móvil */}
       {showActions && (
         <CardFooter className="p-4 pt-0 flex gap-3">
           <Link href={`/product/${product.id}`} className="flex-1">

@@ -46,7 +46,6 @@ export default function SearchFilters({
         <h2 className="text-lg font-semibold">Filtros</h2>
       </div>
 
-      {/* Search */}
       <div>
         <Label className="text-sm font-medium mb-2 block">Buscar</Label>
         <div className="relative">
@@ -60,7 +59,6 @@ export default function SearchFilters({
         </div>
       </div>
 
-      {/* Category Filter */}
       <div>
         <Label className="text-sm font-medium mb-2 block">Categoría</Label>
         <Select value={selectedCategory} onValueChange={onCategoryChange}>
@@ -78,7 +76,6 @@ export default function SearchFilters({
         </Select>
       </div>
 
-      {/* Price Range */}
       <div>
         <Label className="text-sm font-medium mb-2 block">
           Rango de Precio
@@ -105,7 +102,6 @@ export default function SearchFilters({
         </div>
       </div>
 
-      {/* Sort */}
       <div>
         <Label className="text-sm font-medium mb-2 block">Ordenar por</Label>
         <Select value={sortBy} onValueChange={onSortChange}>

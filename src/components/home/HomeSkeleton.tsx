@@ -4,7 +4,6 @@ import { Skeleton } from "@/components/ui/skeleton";
 export default function HomeSkeleton() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Hero Section Skeleton */}
       <div className="mb-12 text-center">
         <Skeleton className="h-12 w-96 mx-auto mb-4" />
         <Skeleton className="h-6 w-128 mx-auto mb-6" />
@@ -14,7 +13,6 @@ export default function HomeSkeleton() {
         </div>
       </div>
 
-      {/* Featured Products Skeleton */}
       <div className="mb-12">
         <div className="flex items-center justify-between mb-6">
           <Skeleton className="h-8 w-48" />
@@ -37,7 +35,6 @@ export default function HomeSkeleton() {
         </div>
       </div>
 
-      {/* Categories Skeleton */}
       <div className="mb-12">
         <div className="flex items-center justify-between mb-6">
           <Skeleton className="h-8 w-40" />
@@ -53,7 +50,6 @@ export default function HomeSkeleton() {
         </div>
       </div>
 
-      {/* Benefits Section Skeleton */}
       <div className="mt-16">
         <Skeleton className="h-8 w-48 mx-auto mb-8" />
         <div className="grid md:grid-cols-3 gap-6">

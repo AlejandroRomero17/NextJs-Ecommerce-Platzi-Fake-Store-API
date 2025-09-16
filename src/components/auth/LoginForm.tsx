@@ -63,9 +63,7 @@ export const LoginForm = () => {
 
   return (
     <div className="w-full max-w-md mx-auto">
-      {/* Card Container */}
       <div className="bg-card border border-border rounded-xl shadow-lg backdrop-blur-sm overflow-hidden">
-        {/* Header */}
         <div className="px-6 sm:px-8 pt-6 sm:pt-8 pb-4 sm:pb-6 text-center">
           <div className="mb-4">
             <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-primary to-secondary rounded-xl mx-auto flex items-center justify-center shadow-lg">
@@ -80,7 +78,6 @@ export const LoginForm = () => {
           </p>
         </div>
 
-        {/* Form Content */}
         <div className="px-6 sm:px-8 pb-6 sm:pb-8">
           {error && (
             <Alert
@@ -93,7 +90,6 @@ export const LoginForm = () => {
           )}
 
           <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
-            {/* Email Field */}
             <div className="space-y-2">
               <Label
                 htmlFor="email"
@@ -118,7 +114,6 @@ export const LoginForm = () => {
               </div>
             </div>
 
-            {/* Password Field */}
             <div className="space-y-2">
               <Label
                 htmlFor="password"
@@ -157,7 +152,6 @@ export const LoginForm = () => {
               </div>
             </div>
 
-            {/* Submit Button */}
             <div className="pt-2">
               <Button
                 type="submit"
@@ -185,7 +179,6 @@ export const LoginForm = () => {
             </div>
           </form>
 
-          {/* Footer */}
           <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-border">
             <p className="text-center text-sm text-muted-foreground">
               ¿No tienes una cuenta?{" "}
@@ -200,7 +193,6 @@ export const LoginForm = () => {
         </div>
       </div>
 
-      {/* Additional Info */}
       <div className="mt-4 sm:mt-6 text-center px-2">
         <p className="text-xs text-muted-foreground leading-relaxed">
           Al iniciar sesión, aceptas nuestros{" "}

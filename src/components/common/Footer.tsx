@@ -52,9 +52,7 @@ export function Footer() {
   return (
     <footer className="bg-card text-card-foreground border-t border-border">
       <div className="container mx-auto px-4">
-        {/* Main Footer Content */}
         <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-          {/* Company Info */}
           <div className="lg:col-span-2">
             <h3 className="text-2xl font-bold text-primary mb-4">StoreApp</h3>
             <p className="text-muted-foreground mb-6 text-pretty">
@@ -63,7 +61,6 @@ export function Footer() {
               especializado.
             </p>
 
-            {/* Contact Info */}
             <div className="space-y-2 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4" />
@@ -80,7 +77,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Footer Sections */}
           {Object.entries(footerSections).map(([key, section]) => (
             <div key={key}>
               <h4 className="font-semibold text-card-foreground mb-4">
@@ -102,15 +98,12 @@ export function Footer() {
           ))}
         </div>
 
-        {/* Bottom Footer */}
         <div className="border-t border-border py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            {/* Copyright */}
             <p className="text-sm text-muted-foreground">
               © 2025 StoreApp. Todos los derechos reservados.
             </p>
 
-            {/* Social Links */}
             <div className="flex items-center gap-4">
               <span className="text-sm text-muted-foreground mr-2">
                 Síguenos:

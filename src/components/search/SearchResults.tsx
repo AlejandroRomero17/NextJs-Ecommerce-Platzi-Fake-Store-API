@@ -116,7 +116,6 @@ export default function SearchResults({
         ))}
       </div>
 
-      {/* Pagination */}
       {totalPages > 1 && (
         <div className="flex items-center justify-center space-x-2">
           <Button

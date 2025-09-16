@@ -76,7 +76,6 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 
       <Separator />
 
-      {/* Quantity and Add to Cart */}
       <div className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-foreground mb-2">
@@ -125,7 +124,6 @@ export default function ProductInfo({ product }: ProductInfoProps) {
 
       <Separator />
 
-      {/* Product Details */}
       <div className="space-y-2 text-sm">
         <div className="flex justify-between">
           <span className="text-muted-foreground">Categoría:</span>

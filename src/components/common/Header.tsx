@@ -90,12 +90,10 @@ export function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 group">
             <span className="font-bold text-xl text-white">StoreApp</span>
           </Link>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <Link
               href="/"
@@ -111,7 +109,6 @@ export function Header() {
             </Link>
           </div>
 
-          {/* Search Bar */}
           <form
             onSubmit={handleSearch}
             className="hidden md:flex items-center space-x-2 flex-1 max-w-md mx-8"
@@ -128,7 +125,6 @@ export function Header() {
             </div>
           </form>
 
-          {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
             {isAuthenticated ? (
               <div className="flex items-center space-x-3">
@@ -198,9 +194,7 @@ export function Header() {
             </Link>
           </div>
 
-          {/* Mobile menu button with Sheet */}
           <div className="md:hidden flex items-center space-x-2">
-            {/* Cart button for mobile */}
             <Link href="/cart">
               <Button
                 variant="ghost"
@@ -216,7 +210,6 @@ export function Header() {
               </Button>
             </Link>
 
-            {/* Sheet trigger */}
             <Sheet>
               <SheetTrigger asChild>
                 <Button
@@ -239,7 +232,6 @@ export function Header() {
                 </SheetHeader>
 
                 <div className="py-6 space-y-6">
-                  {/* Mobile Search */}
                   <form onSubmit={handleSearch} className="px-1">
                     <div className="relative">
                       <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/60 w-4 h-4" />
@@ -253,7 +245,6 @@ export function Header() {
                     </div>
                   </form>
 
-                  {/* Navigation Links */}
                   <div className="space-y-2">
                     <SheetTrigger asChild>
                       <Link
@@ -276,7 +267,6 @@ export function Header() {
                     </SheetTrigger>
                   </div>
 
-                  {/* User Section */}
                   <div className="border-t border-slate-700/30 pt-4 space-y-3">
                     {isAuthenticated ? (
                       <>

@@ -26,7 +26,6 @@ function SearchContent() {
 
   const itemsPerPage = 12;
 
-  // Actualizar URL cuando cambien los filtros
   useEffect(() => {
     const params = new URLSearchParams();
     if (searchQuery) params.set("q", searchQuery);
@@ -115,7 +114,6 @@ function SearchContent() {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {/* Filters Skeleton */}
           <div className="lg:col-span-1">
             <Card className="p-6">
               <Skeleton className="h-6 w-24 mb-4" />
@@ -130,7 +128,6 @@ function SearchContent() {
             </Card>
           </div>
 
-          {/* Products Skeleton */}
           <div className="lg:col-span-3">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {[...Array(9)].map((_, i) => (
@@ -154,12 +151,11 @@ function SearchContent() {
       <SearchHeader
         searchQuery={searchQuery}
         totalProducts={totalProducts}
-        hasActiveFilters={hasActiveFilters} // Ahora es booleano
+        hasActiveFilters={hasActiveFilters}
         onClearFilters={clearFilters}
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        {/* Filters Sidebar */}
         <div className="lg:col-span-1">
           <Card className="p-6 sticky top-4">
             <SearchFilters
@@ -178,7 +174,6 @@ function SearchContent() {
           </Card>
         </div>
 
-        {/* Products Grid */}
         <div className="lg:col-span-3">
           <SearchResults
             products={currentProducts}
@@ -186,7 +181,7 @@ function SearchContent() {
             totalPages={totalPages}
             totalProducts={totalProducts}
             searchQuery={searchQuery}
-            hasActiveFilters={hasActiveFilters} // Ahora es booleano
+            hasActiveFilters={hasActiveFilters}
             onPageChange={setCurrentPage}
             onClearFilters={clearFilters}
           />

@@ -40,7 +40,6 @@ export default function RelatedProducts({
         Productos relacionados
       </h2>
 
-      {/* Desktop: Grid Layout */}
       <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         {relatedProducts.map((product) => (
           <Card
@@ -75,9 +74,7 @@ export default function RelatedProducts({
         ))}
       </div>
 
-      {/* Mobile: Horizontal Scroll */}
       <div className="sm:hidden relative">
-        {/* Scroll Controls */}
         <div className="flex justify-between items-center mb-4">
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <span>{relatedProducts.length} productos relacionados</span>
@@ -102,7 +99,6 @@ export default function RelatedProducts({
           </div>
         </div>
 
-        {/* Scrollable Container */}
         <div
           ref={scrollRef}
           className="flex gap-4 pb-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory"

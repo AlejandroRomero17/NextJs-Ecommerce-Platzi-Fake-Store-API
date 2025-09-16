@@ -65,7 +65,6 @@ export default function CartPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="text-3xl font-bold text-foreground">
@@ -83,7 +82,6 @@ export default function CartPage() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Cart Items */}
         <div className="lg:col-span-2 space-y-4">
           {cartItems.map((item) => (
             <CartItem
@@ -94,7 +92,6 @@ export default function CartPage() {
             />
           ))}
 
-          {/* Clear Cart Button */}
           <div className="flex justify-end">
             <Button
               variant="outline"
@@ -107,7 +104,6 @@ export default function CartPage() {
           </div>
         </div>
 
-        {/* Order Summary */}
         <div className="lg:col-span-1">
           <Card className="sticky top-4">
             <CardHeader>

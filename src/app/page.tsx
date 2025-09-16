@@ -16,10 +16,8 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      {/* Nuevo Hero Section espectacular */}
       <HeroSection />
 
-      {/* Resto del contenido */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
         <FeaturedProducts products={featuredProducts} />
 
@@ -31,7 +29,6 @@ export default function Home() {
           </h2>
           <ProductList />
         </section>
-
       </div>
     </div>
   );
