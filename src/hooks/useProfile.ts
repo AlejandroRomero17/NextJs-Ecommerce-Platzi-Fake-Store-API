@@ -16,4 +16,3 @@ export function useProfile() {
     enabled: !!token,
   });
 }
-// ELIMINA el segundo useProfile duplicado

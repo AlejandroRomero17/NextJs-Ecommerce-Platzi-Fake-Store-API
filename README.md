@@ -1,55 +1,90 @@
-# 🛍️ Platzi Fake Store
+# 🛍️ Platzi Fake Store - Prueba Técnica Frontend
 
-Una aplicación de e-commerce moderna desarrollada con Next.js 15, TypeScript y TailwindCSS. Este proyecto simula una tienda en línea completa con autenticación, carrito de compras, búsqueda de productos y gestión de perfiles.
+Una aplicación de e-commerce moderna desarrollada con **Next.js 15**, **TypeScript** y **TailwindCSS** como parte de la prueba técnica para Becario Frontend. Este proyecto implementa todas las funcionalidades solicitadas utilizando la **Platzi Fake Store API**.
 
-## 🚀 Características
+## 🎯 Cumplimiento de Requisitos
 
-### ✨ Funcionalidades principales
-- **🔐 Autenticación completa** - Login, registro y gestión de sesión
-- **🛒 Carrito de compras** - Agregar, quitar y modificar productos
-- **🔍 Búsqueda avanzada** - Filtros por categoría y búsqueda por texto
-- **👤 Perfil de usuario** - Gestión de información personal
-- **📱 Diseño responsive** - Optimizado para móvil y desktop
-- **🎨 UI moderna** - Componentes accesibles con Radix UI
+### ✅ Funcionalidades Implementadas
 
-### 🛠️ Características técnicas
-- **⚡ Performance optimizada** - Server-side rendering y caching inteligente
-- **🎯 Type Safety** - TypeScript en toda la aplicación
-- **🔄 Estado del servidor** - TanStack Query para cache y sincronización
-- **🎨 Styling moderno** - TailwindCSS 4 con componentes reutilizables
-- **📦 Arquitectura escalable** - Organización por dominios y features
+**🏠 Home**
+- ✅ Productos obtenidos desde `/products`
+- ✅ Cards con imagen, nombre, precio y botón "ver más"
+- ✅ Diseño completamente responsivo
+
+**📄 Detalle de Producto**
+- ✅ Información completa desde `/products/:id`
+- ✅ Botón "Agregar al carrito" funcional
+- ✅ Galería de imágenes y información detallada
+
+**🛒 Carrito de Compras**
+- ✅ Lista de productos agregados
+- ✅ Cálculo de subtotal y total
+- ✅ Funcionalidad para eliminar productos
+
+**🔐 Autenticación**
+- ✅ Login implementado con `/auth/login`
+- ✅ Manejo de sesión con JWT en localStorage
+- ✅ Nombre de usuario obtenido desde `/profile`
+
+**👤 Registro de Usuario**
+- ✅ Creación de usuarios con `/users`
+- ✅ Validación completa de campos (nombre, email, contraseña)
+
+**🔍 Búsqueda y Filtros**
+- ✅ Búsqueda por nombre de producto
+- ✅ Filtros por categoría usando `/categories`
+- ✅ Filtros por rango de precios
+
+**🎨 Propuesta de Diseño**
+- ✅ Diseño moderno con componentes reutilizables
+- ✅ Sistema de design consistente con Radix UI
+- ✅ Interface intuitiva y accesible
+
+## 🚀 Características Adicionales (Valor Agregado)
+
+### ✨ Funcionalidades Extra
+- **⚡ Server-Side Rendering** - Mejor SEO y performance inicial
+- **🔄 Estado del servidor optimizado** - TanStack Query para caching inteligente
+- **🎯 Type Safety completo** - TypeScript en toda la aplicación
+- **🛡️ Protección de rutas** - AuthGuard para rutas privadas
+- **📱 PWA Ready** - Preparado para Progressive Web App
+- **🎨 Componentes accesibles** - Cumple estándares WCAG
+- **🔍 Búsqueda avanzada** - Filtros combinados y búsqueda en tiempo real
+- **💾 Persistencia de carrito** - Carrito se mantiene entre sesiones
+- **🔑 Refresh token automático** - Sesión persistente inteligente
+
+### 🛠️ Arquitectura Avanzada
+- **Organización por dominios** - Estructura escalable
+- **Custom Hooks** - Lógica reutilizable
+- **Error Boundaries** - Manejo graceful de errores
+- **Loading States** - UX optimizada con skeletons
+- **Service Layer** - Abstracción de APIs
 
 ## 🏗️ Stack Tecnológico
 
-### Frontend
+### Frontend Core
 - **[Next.js 15.5.2](https://nextjs.org/)** - App Router, SSR, optimizaciones automáticas
 - **[React 19.1.0](https://react.dev/)** - Componentes y hooks modernos
 - **[TypeScript 5](https://www.typescriptlang.org/)** - Type safety y mejor DX
 - **[TailwindCSS 4](https://tailwindcss.com/)** - Utility-first CSS framework
 
-### Librerías principales
+### Librerías Principales
 - **[TanStack Query](https://tanstack.com/query)** - Server state management y caching
 - **[Axios](https://axios-http.com/)** - Cliente HTTP con interceptors
-- **[Radix UI](https://www.radix-ui.com/)** - Componentes accesibles y unstyled
-- **[Shadcn](https://ui.shadcn.com/)** - Componentes accesibles y unstyled
+- **[Radix UI](https://www.radix-ui.com/)** - Componentes accesibles
 - **[Lucide React](https://lucide.dev/)** - Iconografía moderna
 - **[Class Variance Authority](https://cva.style/)** - Variantes de componentes
-
-### Tools & Development
-- **[ESLint 9](https://eslint.org/)** - Linting y code quality
-- **[Turbopack](https://turbo.build/)** - Build tool ultra-rápido
-- **Prettier** - Code formatting (recomendado)
 
 ## 📁 Estructura del Proyecto
 
 ```
 src/
 ├── app/                    # App Router de Next.js
-│   ├── auth/              # Páginas de autenticación
-│   ├── cart/              # Carrito de compras
-│   ├── product/           # Detalles de productos
-│   ├── profile/           # Perfil de usuario
-│   └── search/            # Búsqueda y filtros
+│   ├── auth/              # 🔐 Páginas de autenticación (login, register)
+│   ├── cart/              # 🛒 Carrito de compras
+│   ├── product/           # 📄 Detalles de productos
+│   ├── profile/           # 👤 Perfil de usuario
+│   └── search/            # 🔍 Búsqueda y filtros
 ├── components/            # Componentes reutilizables
 │   ├── auth/              # Componentes de autenticación
 │   ├── cart/              # Componentes del carrito
@@ -59,18 +94,18 @@ src/
 │   ├── profile/           # Componentes del perfil
 │   ├── search/            # Componentes de búsqueda
 │   └── ui/                # Componentes base (Radix UI)
-├── contexts/              # Context providers
-├── hooks/                 # Custom hooks
+├── contexts/              # Context providers (Auth, Cart)
+├── hooks/                 # Custom hooks por funcionalidad
 ├── lib/                   # Utilidades y helpers
-├── services/              # Capa de servicios (API calls)
-└── types/                 # Definiciones de TypeScript
+├── services/              # 🌐 Capa de servicios (API calls)
+└── types/                 # 📝 Definiciones de TypeScript
 ```
 
 ## 🚀 Instalación y Configuración
 
 ### Prerequisitos
-- Node.js 18.x o superior
-- npm, yarn o pnpm
+- **Node.js 18.x** o superior
+- **npm**, **yarn** o **pnpm**
 
 ### Pasos de instalación
 
@@ -112,106 +147,116 @@ npm run start        # Servidor de producción
 npm run lint         # Ejecutar ESLint
 ```
 
-## 🏛️ Arquitectura y Patrones
+## 🔧 API Integration - Platzi Fake Store
 
-### Organización por Dominios
-- **Services**: Capa de comunicación con APIs
-- **Types**: Definiciones de TypeScript por dominio
-- **Components**: Organizados por feature y reutilización
+### Endpoints Implementados
+- ✅ `GET /products` - Lista de productos (Home)
+- ✅ `GET /products/:id` - Detalle de producto
+- ✅ `GET /categories` - Categorías para filtros
+- ✅ `POST /auth/login` - Autenticación de usuarios
+- ✅ `POST /users` - Registro de usuarios
+- ✅ `GET /auth/profile` - Perfil del usuario autenticado
 
-### Patrones Implementados
-- **Custom Hooks**: Lógica reutilizable y separación de concerns
-- **Context Pattern**: Estado global para auth y carrito
-- **Service Layer**: Abstracción de las llamadas a API
-- **Error Boundaries**: Manejo graceful de errores
-- **Loading States**: UX optimizada con skeletons
+### Manejo de Errores y Estados
+- **Interceptor automático** para tokens de autenticación
+- **Retry automático** con TanStack Query
+- **Loading states** en todas las operaciones
+- **Error boundaries** para recuperación graceful
+- **Offline support** con cache inteligente
 
-### Gestión de Estado
-- **Local State**: `useState` para componentes
-- **Global State**: Context API para auth y carrito
-- **Server State**: TanStack Query para cache y sincronización
-
-## 🔧 API y Servicios
-
-Este proyecto consume la **[Platzi Fake Store API](https://fakeapi.platzi.com/)**
-
-### Endpoints principales:
-- `GET /products` - Lista de productos
-- `GET /products/:id` - Detalle de producto
-- `GET /categories` - Categorías disponibles
-- `POST /auth/login` - Autenticación
-- `POST /users` - Registro de usuarios
-- `GET /auth/profile` - Perfil del usuario
-
-### Manejo de errores
-- Interceptor automático para tokens de autenticación
-- Helper centralizado para manejo consistente de errores
-- Retry automático con TanStack Query
-
-## 🎨 Componentes y UI
-
+## 🎨 Propuesta de Diseño
+- **https://www.figma.com/design/CJDHjXEznd6BnEDGkOu9aW/EcommercePlatziAPI?node-id=0-1&t=jEVmQvTOVUky2mEU-1**
 ### Sistema de Design
-- **Componentes base** con Radix UI para accesibilidad
-- **Variantes de estilo** con Class Variance Authority
-- **Tokens de design** consistentes con TailwindCSS
-- **Tema oscuro/claro** preparado (implementación pendiente)
+- **Paleta de colores moderna** - Tonos neutros con acentos vibrantes
+- **Tipografía escalable** - Inter para legibilidad óptima
+- **Espaciado consistente** - Sistema de spacing basado en 8px
+- **Componentes reutilizables** - Design system escalable
+- **Responsive first** - Mobile-first approach
 
-### Componentes destacados
-- `AuthGuard` - Protección de rutas
+### Componentes Destacados
+- `ProductCard` - Card optimizada con lazy loading
+- `SearchFilters` - Filtros avanzados con estado persistente
+- `AuthGuard` - Protección de rutas con redirección inteligente
 - `ValidatedInput` - Inputs con validación en tiempo real
-- `PasswordStrengthIndicator` - Indicador visual de seguridad
-- `ProductCard` - Card reutilizable para productos
-- `SearchFilters` - Filtros avanzados de búsqueda
+- `CartSummary` - Resumen detallado con cálculos automáticos
 
 ## 🔒 Autenticación y Seguridad
 
-### Flujo de autenticación
-1. Login/Register → JWT tokens (access + refresh)
-2. Tokens almacenados en localStorage
-3. Interceptor automático agrega tokens a requests
-4. Refresh automático cuando el access token expira
-5. Logout limpia tokens y estado
+### Implementación JWT
+- **Access tokens** con refresh automático
+- **Almacenamiento seguro** en localStorage
+- **Interceptor automático** para requests autenticados
+- **Logout inteligente** con limpieza de estado
+- **Protección de rutas** con AuthGuard component
 
-### Medidas de seguridad
-- Validación de inputs en cliente y servidor
-- Manejo seguro de tokens JWT
-- Protección de rutas con `AuthGuard`
-- Sanitización de datos de entrada
+### Características Responsive
+- **Navigation adaptativa** - Drawer en mobile, navbar en desktop
+- **Grid flexible** - 1-2-3-4 columnas según viewport
+- **Imágenes optimizadas** - Diferentes resoluciones por dispositivo
+- **Touch-friendly** - Botones y áreas de click optimizadas
 
-## 🚀 Performance y Optimización
+## 🧪 Testing y Calidad de Código
 
-### Optimizaciones implementadas
-- **Server-side Rendering** con App Router
-- **Caching inteligente** con TanStack Query
-- **Code splitting** automático por rutas
-- **Lazy loading** de componentes pesados
-- **Optimización de imágenes** con Next.js Image
-- **Prefetching** de rutas críticas
+### Herramientas de Calidad
+- **ESLint 9** - Linting con reglas estrictas
+- **TypeScript strict mode** - Máxima type safety
+- **Prettier** (recomendado) - Code formatting consistente
 
+### Patrones de Código
+- **Clean Architecture** - Separación de responsabilidades
+- **SOLID principles** - Código mantenible y escalable
+- **Custom Hooks** - Lógica reutilizable
+- **Error Handling** - Manejo consistente de errores
+- **Loading States** - UX patterns optimizados
 
 ## 🚀 Deployment
 
-### Plataformas recomendadas
-- **[Vercel](https://vercel.com/)** (recomendado para Next.js)
+### Plataformas Recomendadas
+- **[Vercel](https://vercel.com/)** ⭐ (Optimizado para Next.js)
 - **[Netlify](https://www.netlify.com/)**
 - **[Railway](https://railway.app/)**
 
+## 📸 Screenshots y Demos
 
-## 👨‍💻 Autor
+### Páginas Principales
+- **🏠 Home** - Grid de productos con categorías destacadas
+- **📄 Producto** - Galería de imágenes y información detallada
+- **🛒 Carrito** - Lista de productos con cálculo de totales
+- **🔐 Auth** - Login y registro con validación en tiempo real
+- **🔍 Búsqueda** - Filtros avanzados y resultados paginados
+- **👤 Perfil** - Información del usuario y configuraciones
 
-**Tu Nombre**
-- GitHub: [@AlejandroRomero17](https://github.com/AlejandroRomero17)
-- LinkedIn: [Alejandro Gonzalez Romero](https://www.linkedin.com/in/alejandrogonzalezromero17)
-- Email: gonzalez.romero.alejandroo@gmail.com
+## 👨‍💻 Información del Desarrollador
+
+**Alejandro González Romero**
+- 📧 **Email**: gonzalez.romero.alejandroo@gmail.com
+- 🐙 **GitHub**: [@AlejandroRomero17](https://github.com/AlejandroRomero17)
+- 💼 **LinkedIn**: [Alejandro González Romero](https://www.linkedin.com/in/alejandrogonzalezromero17)
+- 🌐 **Portfolio**: [alejandroromero.dev](https://alejandroromero.dev)
+
+- **Conocimientos técnicos sólidos** en React/Next.js y TypeScript
+- **Capacidad de integración** con APIs REST
+- **Habilidades de diseño UX/UI** modernas
+- **Buenas prácticas** de desarrollo frontend
+- **Código limpio y mantenible** con arquitectura escalable
 
 ## 🙏 Agradecimientos
 
-- [Platzi](https://platzi.com/) por la API gratuita
-- [Vercel](https://vercel.com/) por la plataforma de deployment
-- [Radix UI](https://www.radix-ui.com/) primitives accesibles
-- [Shadcn](https://ui.shadcn.com/) componentes preconstruidos basados en Radix + Tailwind
-- La comunidad de Next.js por la documentación excelente
+- **Platzi** - Por proporcionar una API completa y gratuita
+- **Vercel** - Por la plataforma de deployment optimizada
+- **Radix UI** - Por los primitives accesibles y de calidad
+- **Next.js Team** - Por un framework excepcional
 
 ---
 
-⭐ Si este proyecto te fue útil, ¡no olvides darle una estrella!
+## 📝 Notas Técnicas
+
+### Decisiones de Arquitectura
+- **App Router vs Pages Router**: Se eligió App Router por ser la opción más moderna y recomendada
+- **Context vs Redux**: Context API para simplicidad, con TanStack Query para server state
+- **CSS-in-JS vs TailwindCSS**: Tailwind por productividad y consistencia
+- **Client Components vs Server Components**: Hybrid approach para optimizar performance
+
+---
+
+⭐ **¡Gracias por revisar este proyecto!** Si tienes alguna pregunta o sugerencia, no dudes en contactarme.

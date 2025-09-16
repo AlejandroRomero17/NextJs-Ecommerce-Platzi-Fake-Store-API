@@ -56,11 +56,6 @@ export const defaultValidationRules: ValidationRules = {
       message: "Una minúscula",
     },
     { test: (value: string) => /\d/.test(value), message: "Un número" },
-    // ELIMINADA la validación de carácter especial:
-    // {
-    //   test: (value: string) => /[!@#$%^&*(),.?":{}|<>]/.test(value),
-    //   message: "Un carácter especial",
-    // },
   ],
 };
 
@@ -133,7 +128,6 @@ export const usePasswordStrength = () => {
     const rules = defaultValidationRules.password;
     const passedRules = rules.filter((rule) => rule.test(password)).length;
 
-    // Ajustar los porcentajes ya que ahora solo hay 4 reglas en lugar de 5
     if (passedRules <= 1)
       return {
         strength: "weak",
